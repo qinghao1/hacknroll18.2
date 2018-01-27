@@ -6,14 +6,14 @@ import { BrowserRouter as Router,
        } from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
 import CreateJoin from "./CreateJoin.js"
+import Lobby from "./Lobby.js"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-
-    const Home = () => (
-        <div>
-          <h2>Home</h2>
-        </div>
-    )
+const Home = () => (
+    <div>
+      <h2>Home</h2>
+    </div>
+)
 
 class HelloWorld extends React.Component{
   render() {
@@ -24,12 +24,14 @@ class HelloWorld extends React.Component{
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/createjoin">About</Link></li>
+                <li><Link to="/lobby">lobby</Link></li>
               </ul>
               <form action="/" method="POST">
                 <input type="submit" value="Submit" />
               </form>
               <Route exact path="/" component={Home}/>
               <Route path="/createjoin" component={CreateJoin}/>
+              <Route path="/lobby" component={Lobby}/>
             </div>
           </Router>
         </MuiThemeProvider>

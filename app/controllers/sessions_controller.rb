@@ -37,6 +37,6 @@ class SessionsController < ApplicationController
     @session.players.push(@player)
     @session.save
 
-    render status: 200, json: {session_id: params[:id]}
+    render status: 200, json: {game_id: @session.current_game}
   end
 end

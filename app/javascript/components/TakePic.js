@@ -14,6 +14,8 @@ class TakePic extends React.Component {
       fetch(url, {
         method: 'post',
         body: {
+          name: sessionStorage.getItem("playerName"),
+          img: img
         }
       })
         .then( (res) => {

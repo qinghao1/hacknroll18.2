@@ -8,13 +8,20 @@ class CreateJoin extends React.Component {
   constructor(props, context) {
      super(props, context);
     this.state = {
-      value: ''
+      value: '',
+      name: ''
     }
   }
 
   handleChange = (e) => {
     this.setState({
-      value: e.target.value,
+      value: e.target.value
+    });
+  };
+
+  handleName = (e) => {
+    this.setState({
+      name: e.target.value
     });
   };
     render () {
@@ -41,12 +48,12 @@ class CreateJoin extends React.Component {
                     }
                 )
         }
-        const joinHandler = (val) => {
-          console.log(val);  
-          fetch("/".concat(val), {
+        const joinHandler = () => {
+          const name = this.state.name;
+          fetch("/".concat(this.state.value), {
                 method: 'post',
                 body: {
-                  name: val 
+                  name: this.state.name 
                 }
             })
                 .then(
@@ -56,8 +63,11 @@ class CreateJoin extends React.Component {
                                         response.status);
                             return;
                         }
-                         
-                        history.push("/lobby");
+                        response.json().then(function(data) {
+                          console.log(data);
+                          sessionStorage.setItem("playerName", name);
+                          history.push("/");
+                        });
                     }
                 )
         }
@@ -66,7 +76,8 @@ class CreateJoin extends React.Component {
               <RaisedButton onClick={clickHandler} label="Create Room" primary={true}/>
               <br/>
               <TextField value={this.state.value} onChange={this.handleChange} hintText="Session ID" /> <br/>
-              <RaisedButton label="Join Room" onClick={() => {joinHandler(this.state.value)}} secondary={true}/>
+              <TextField value={this.state.name} onChange={this.handleName} hintText="Name" /> <br/>
+              <RaisedButton label="Join Room" onClick={() => {joinHandler()}} secondary={true}/>
             </div>
         )
     }

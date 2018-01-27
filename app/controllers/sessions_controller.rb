@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
     @session.players.push(@player)
     @session.save
 
-    render status: :success
+    render status: 200
   end
 
   # POST /
@@ -41,8 +41,8 @@ class SessionsController < ApplicationController
       unique_id: @unique_id,
       created_time: DateTime.now
     )
-    
-    render status: :success, json: {session_id: @unique_id}
+
+    render status: 200, json: {session_id: @unique_id}
   end
 
   private

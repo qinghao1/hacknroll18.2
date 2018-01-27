@@ -6,6 +6,8 @@ class CreateJoin extends React.Component {
     clickHandler = () => {
         fetch('localhost/', {
             method: 'post' 
+            body: {
+            }
         })
             .then(
                 function(response) {

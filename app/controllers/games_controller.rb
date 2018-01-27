@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   # GET /game/:id
   def show
     @game = Game.find(params[:id])
+    @player = Game.session.players.where(name: params[:name])
     # Round end logic
     if @game.current_round.blank? or @game.current_round.finished
       @game.num_rounds += 1

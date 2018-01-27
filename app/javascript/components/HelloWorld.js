@@ -2,14 +2,24 @@ import React from "react"
 import PropTypes from "prop-types"
 import RaisedButton from "material-ui/RaisedButton"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import axios from 'axios';
 
 class HelloWorld extends React.Component {
+
+  postReq = () => {
+    axios.post('/', {})
+      .then((res) => {
+        console.log(res);
+      })
+  };
+
   render () {
     return (
 			<MuiThemeProvider>
       	<div>
-        	<div>Greeting: {this.props.greeting}</div>
-					<RaisedButton> whjeee</RaisedButton>
+            <form action="/" method="POST">
+              <input type="submit" value="Submit" />
+            </form>
       	</div>
 			</MuiThemeProvider>
     );

@@ -2,13 +2,15 @@ class GamesController < ApplicationController
   # GET /game/:id
   def show
     @game = Game.find(params[:id])
-    @player = Game.session.players.where(name: params[:name])
+    @player = Game.session.players.where(name: params[:name]).first
     # Round end logic
     if @game.current_round.blank? or @game.current_round.finished
       @game.num_rounds += 1
       new_round = Round.new()
       @game.rounds.push(new_round)
       @game.current_round = new_round.id
+      @game.game_state = SecureRandom.random_number(8)
+      @game.save
     end
   end
 
@@ -44,7 +46,7 @@ class GamesController < ApplicationController
     emotion_score = 
       response.first["faceAttributes"]["emotion"][@game.required_emotion]
     
-    @current_round.scores[params[:player_id]] = emotion_score
+    @current_round.scores[params[:player_name]] = emotion_score
 
     max_score = @game.session.players.length
     if @current_round.scores.length == max_score

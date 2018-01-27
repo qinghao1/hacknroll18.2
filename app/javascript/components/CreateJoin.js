@@ -4,7 +4,11 @@ import RaisedButton from "material-ui/RaisedButton"
 
 class CreateJoin extends React.Component {
     clickHandler = () => {
-        $.postJSON('localhost/games')
+        fetch('/', {
+            method: 'post',
+            body: {
+            }
+        });
     }
     render () {
         return (

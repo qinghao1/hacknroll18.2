@@ -26,8 +26,7 @@ class SessionsController < ApplicationController
   def join
     @session = Session.where(unique_id: params[:id])
     @player = Player.new(
-      name: params[:name],
-      picture_url: params[:picture_url]
+      name: params[:name]
     )
     @session.players.push(@player)
     @session.save
@@ -43,17 +42,7 @@ class SessionsController < ApplicationController
       created_time: DateTime.now
     )
 
-    respond_to do |format|
-      if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
-        format.json { render :show, status: :created, location: @session }
-      else
-        format.html { render :new }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
-      end
-    end
-
-    render status: :success
+    render status: :success, json: {session_id: @unique_id}
   end
 
   private

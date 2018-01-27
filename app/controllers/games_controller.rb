@@ -56,6 +56,6 @@ class GamesController < ApplicationController
     end
     @current_round.save
 
-    render status: :success
+    render status: 200
   end
 end

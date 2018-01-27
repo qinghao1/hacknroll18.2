@@ -4,7 +4,7 @@ import RaisedButton from "material-ui/RaisedButton"
 
 class CreateJoin extends React.Component {
     clickHandler = () => {
-        fetch('localhost/', {
+        fetch('/', {
             method: 'post',
             body: {
             }

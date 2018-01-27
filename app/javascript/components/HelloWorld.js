@@ -5,7 +5,6 @@ import { BrowserRouter as Router,
          Link
        } from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
-import axios from 'axios';
 import CreateJoin from "./CreateJoin.js"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 

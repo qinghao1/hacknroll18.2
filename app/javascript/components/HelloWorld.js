@@ -7,14 +7,14 @@ import { BrowserRouter as Router,
 import RaisedButton from "material-ui/RaisedButton"
 import TakePic from "./TakePic.js"
 import CreateJoin from "./CreateJoin.js"
+import Lobby from "./Lobby.js"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-
-    const Home = () => (
-        <div>
-          <h2>Home</h2>
-        </div>
-    )
+const Home = () => (
+    <div>
+      <h2>Home</h2>
+    </div>
+)
 
 class HelloWorld extends React.Component{
   render() {
@@ -26,10 +26,12 @@ class HelloWorld extends React.Component{
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/createjoin">About</Link></li>
                 <li><Link to="/camera">Take a foto</Link></li>
+                <li><Link to="/lobby">lobby</Link></li>
               </ul>
               <Route exact path="/" component={Home}/>
               <Route path="/createjoin" component={CreateJoin}/>
               <Route path="/camera" component={TakePic}/>
+              <Route path="/lobby" component={Lobby}/>
             </div>
           </Router>
         </MuiThemeProvider>

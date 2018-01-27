@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
   # POST /sessions/1.json
   def join
     @session = Session.where(unique_id: params[:id])
+    byebug
     @player = Player.new(
       name: params[:name]
     )

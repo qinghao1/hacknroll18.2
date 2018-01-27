@@ -2,7 +2,7 @@ import React from 'react';
 import Webcam from 'react-webcam';
 import {withRouter} from 'react-router-dom'
 
-export default class TakePic extends React.Component {
+class TakePic extends React.Component {
   setRef = (webcam) => {
     this.webcam = webcam;
   }
@@ -16,11 +16,14 @@ export default class TakePic extends React.Component {
         body: {
         }
       })
-        .then( (res) {
+        .then( (res) => {
           if (res.status == 200) {
             console.log("Image uploaded");
             history.push('/lobby');
           }
+        })
+      };
+
     const capture = () => {
       const imageSrc = this.webcam.getScreenshot();
       console.log(history.location.pathname);
@@ -39,6 +42,5 @@ export default class TakePic extends React.Component {
             </div>
           );
         }
-    }
-
-    export default withRouter(TakePic);
+}
+export default withRouter(TakePic);

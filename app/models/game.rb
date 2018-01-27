@@ -11,21 +11,21 @@ class Game
   def required_emotion
     # Ignore game_type for now
     case game_state
-    when 1
+    when 0
       return "anger"
-    when 2
+    when 1
       return "contempt"
-    when 3
+    when 2
       return "disgust"
-    when 4
+    when 3
       return "fear"
-    when 5
+    when 4
       return "happiness"
-    when 6
+    when 5
       return "neutral"
-    when 7
+    when 6
       return "sadness"
-    when 8
+    when 7
       return "surprise"
     end
   end

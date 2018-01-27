@@ -7,7 +7,6 @@ class CreateJoin extends React.Component {
   constructor(props, context) {
      super(props, context);
   }
-
     render () {
         const { history } = this.props;
         const clickHandler = () => {

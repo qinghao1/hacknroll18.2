@@ -36,12 +36,12 @@ class SessionsController < ApplicationController
 
   # POST /
   def create
-    @unique_id = SecureRandom.hex(6)
+    @unique_id = SecureRandom.hex(3)
     @session = Session.new(
       unique_id: @unique_id,
       created_time: DateTime.now
     )
-
+    
     render status: :success, json: {session_id: @unique_id}
   end
 

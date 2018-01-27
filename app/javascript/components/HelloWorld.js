@@ -5,6 +5,7 @@ import { BrowserRouter as Router,
          Link
        } from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
+import TakePic from "./TakePic.js"
 import CreateJoin from "./CreateJoin.js"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
@@ -24,12 +25,11 @@ class HelloWorld extends React.Component{
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/createjoin">About</Link></li>
+                <li><Link to="/camera">Take a foto</Link></li>
               </ul>
-              <form action="/" method="POST">
-                <input type="submit" value="Submit" />
-              </form>
               <Route exact path="/" component={Home}/>
               <Route path="/createjoin" component={CreateJoin}/>
+              <Route path="/camera" component={TakePic}/>
             </div>
           </Router>
         </MuiThemeProvider>

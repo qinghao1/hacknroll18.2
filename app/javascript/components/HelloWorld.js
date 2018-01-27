@@ -7,6 +7,7 @@ import { BrowserRouter as Router,
 import RaisedButton from "material-ui/RaisedButton"
 import axios from 'axios';
 import CreateJoin from "./CreateJoin.js"
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 
     const Home = () => (

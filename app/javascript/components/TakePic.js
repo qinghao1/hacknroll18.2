@@ -7,6 +7,10 @@ class TakePic extends React.Component {
     this.webcam = webcam;
   }
 
+    capture = () => {
+      const imageSrc = this.webcam.getScreenshot();
+      console.log(imageSrc);
+  };
 
   render() {
     const {history} = this.props;

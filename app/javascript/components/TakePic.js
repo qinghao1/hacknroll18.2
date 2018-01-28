@@ -6,8 +6,9 @@ export default class TakePic extends React.Component {
     this.webcam = webcam;
   }
 
-  capture = () => {
-    const imageSrc = this.webcam.getScreenshot();
+    capture = () => {
+      const imageSrc = this.webcam.getScreenshot();
+      console.log(imageSrc);
   };
 
   render() {

@@ -9,6 +9,7 @@ class CreateJoin extends React.Component {
   }
     render () {
         const { history } = this.props;
+
         const clickHandler = () => {
             fetch('/', {
                 method: 'post',
@@ -26,6 +27,7 @@ class CreateJoin extends React.Component {
                         // Examine the text in the response
                         response.json().then(function(data) {
                             console.log(data);
+                            history.push("/games/" + data.session_id);
                         });
                         console.log(history);
                         history.push("/lobby");

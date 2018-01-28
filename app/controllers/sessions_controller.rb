@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
     @unique_id = SecureRandom.hex(3)
     @session = Session.new(
       unique_id: @unique_id,
-      created_time: DateTime.now
+      created_time: DateTime.now,
+      current_game: DateTime.now
     )
     @session.save
 
@@ -37,6 +38,6 @@ class SessionsController < ApplicationController
     @session.players.push(@player)
     @session.save
 
-    render status: 200, json: {game_id: @session.current_game}
+    render status: 200, json: {session: @session}
   end
 end

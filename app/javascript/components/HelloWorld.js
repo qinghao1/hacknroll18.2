@@ -8,6 +8,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import TakePic from "./TakePic.js"
 import CreateJoin from "./CreateJoin.js"
 import Lobby from "./Lobby.js"
+import Gamepage from "./Gamepage.js"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 const Home = () => (
@@ -27,11 +28,13 @@ class HelloWorld extends React.Component{
                 <li><Link to="/createjoin">About</Link></li>
                 <li><Link to="/camera">Take a foto</Link></li>
                 <li><Link to="/lobby">lobby</Link></li>
+                <li><Link to="/gamepage">gamepage</Link></li>
               </ul>
               <Route exact path="/" component={Home}/>
               <Route path="/createjoin" component={CreateJoin}/>
               <Route path="/camera" component={TakePic}/>
               <Route path="/lobby" component={Lobby}/>
+              <Route path="/gamepage" component={Gamepage}/>
             </div>
           </Router>
         </MuiThemeProvider>
